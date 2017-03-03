@@ -1,0 +1,11 @@
+.DS_Store
+.sass-cache
+.publish
+.idea
+Desktop.ini
+node_modules
+**/generated/_icons.sass
+npm-debug.log
+dist
+.vscode
+.styles
