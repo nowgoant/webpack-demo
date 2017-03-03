@@ -1,5 +1,5 @@
 var path = require('path');
-// var webpack = require('webpack');
+var webpack = require('webpack');
 
 /**
  * demo3
@@ -35,40 +35,43 @@ var webpackConfig = {
     }, {
       test: /\.html$/,
       loaders: ['html-loader?minimize=false']
+    }, {
+      test: /\.scss$/,
+      loaders: ['style-loader', 'css-loader', 'sass-loader']
     }]
   },
   //是否生成source-map
   devtool: 'inline-source-map',
-  // plugins: [
-  //   /**
-  //    * 环境变量
-  //    */
-  //   new webpack.DefinePlugin({
-  //     'process.env': {
-  //       'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-  //     }
-  //   }),
-  //   /**
-  //    * 抽取公共脚本
-  //    */
-  //   new webpack.optimize.CommonsChunkPlugin({
-  //     name: 'shared',
-  //     filename: '[name].js'
-  //   }),
-  //   new webpack.optimize.DedupePlugin(),
-  //   new webpack.optimize.UglifyJsPlugin({
-  //     compress: {
-  //       'drop_debugger': true,
-  //       'drop_console': true,
-  //       warnings: true
-  //     },
-  //     output: {
-  //       comments: false,
-  //       ascii_only: true
-  //     }
-  //   }),
-  //   new webpack.NoErrorsPlugin()
-  // ]
+  plugins: [
+    //   /**
+    //    * 环境变量
+    //    */
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+      }
+    }),
+    //   /**
+    //    * 抽取公共脚本
+    //    */
+    //   new webpack.optimize.CommonsChunkPlugin({
+    //     name: 'shared',
+    //     filename: '[name].js'
+    //   }),
+    //   new webpack.optimize.DedupePlugin(),
+    //   new webpack.optimize.UglifyJsPlugin({
+    //     compress: {
+    //       'drop_debugger': true,
+    //       'drop_console': true,
+    //       warnings: true
+    //     },
+    //     output: {
+    //       comments: false,
+    //       ascii_only: true
+    //     }
+    //   }),
+    // new webpack.NoErrorsPlugin()
+  ]
 };
 
 /**
