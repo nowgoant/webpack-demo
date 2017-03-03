@@ -1,5 +1,5 @@
 var path = require('path');
-var webpack = require('webpack');
+// var webpack = require('webpack');
 
 /**
  * demo3
@@ -11,7 +11,7 @@ var webpackConfig = {
   resolve: {
     //查找module的话从这里开始查找
     root: jsSrc,
-    extensions: ['js', 'json']
+    extensions: ['', '.js', '.json', '.scss']
   },
   //入口的路径
   context: jsSrc,
