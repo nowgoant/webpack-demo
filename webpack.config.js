@@ -17,8 +17,8 @@ var webpackConfig = {
   context: jsSrc,
   entry: {
     'index': ['./index.js'],
-    'index2': ['./index.1.js'],
-    'index3': ['./index.2.js']
+    'index1': ['./index.1.js'],
+    'index2': ['./index.2.js']
   },
   output: {
     path: path.resolve(__dirname, 'src', 'dist/scripts'),
@@ -58,6 +58,7 @@ var webpackConfig = {
     //     name: 'shared',
     //     filename: '[name].js'
     //   }),
+    //   有些JS库有自己的依赖树，并且这些库可能有交叉的依赖，DedupePlugin可以找出他们并删除重复的依赖。
     //   new webpack.optimize.DedupePlugin(),
     //   new webpack.optimize.UglifyJsPlugin({
     //     compress: {
@@ -70,7 +71,7 @@ var webpackConfig = {
     //       ascii_only: true
     //     }
     //   }),
-    // new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin()
   ]
 };
 
