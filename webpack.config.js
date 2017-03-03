@@ -16,29 +16,29 @@ var webpackConfig = {
   //入口的路径
   context: jsSrc,
   entry: {
-    'index': ['./index.js']
-    // 'index2': ['./index.2.js'],
-    // 'index3': ['./index.3.js']
+    'index': ['./index.js'],
+    'index2': ['./index.1.js'],
+    'index3': ['./index.2.js']
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'src', 'dist/scripts'),
     filename: '[name].js'
-  }
-  // module: {
-  //   loaders: [{
-  //     test: /\.js$/,
-  //     loader: 'babel-loader',
-  //     exclude: /node_modules/,
-  //     query: {
-  //       'presets': ['es2015', 'stage-1']
-  //     }
-  //   }, {
-  //     test: /\.html$/,
-  //     loaders: ['html-loader?minimize=false']
-  //   }]
-  // },
+  },
+  module: {
+    loaders: [{
+      test: /\.js$/,
+      loader: 'babel-loader',
+      exclude: /node_modules/,
+      query: {
+        'presets': ['es2015', 'stage-1']
+      }
+    }, {
+      test: /\.html$/,
+      loaders: ['html-loader?minimize=false']
+    }]
+  },
   //是否生成source-map
-  // devtool: 'inline-source-map',
+  devtool: 'inline-source-map',
   // plugins: [
   //   /**
   //    * 环境变量
@@ -80,7 +80,5 @@ var webpackConfig = {
 // }
 
 // webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
-
-
 
 module.exports = webpackConfig;

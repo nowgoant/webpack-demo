@@ -1,1 +1,7 @@
-console.log('index');
+class Index {
+  
+}
+
+console.log('Index');
+
+module.exports = Index;
